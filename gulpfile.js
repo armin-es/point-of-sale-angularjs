@@ -76,3 +76,12 @@ gulp.task('export', () => {
 gulp.task('default', ['styles', 'scripts'], () => {
 	console.log("starting default task");
 });
+
+//watch
+gulp.task('watch', ['default'], () => {
+	console.log("starting watch task");
+	require('./app.js');
+	livereload.listen();
+	gulp.watch(PATH.SCRIPTS, ['scripts']);
+	gulp.watch(PATH.STYLES, ['styles']);
+});
