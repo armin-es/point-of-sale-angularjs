@@ -71,3 +71,8 @@ gulp.task('export', () => {
 		.pipe(zip('project.zip'))
 		.pipe(gulp.dest('./'));
 });
+
+//Default
+gulp.task('default', ['styles', 'scripts'], () => {
+	console.log("starting default task");
+});
