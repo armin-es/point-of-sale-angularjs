@@ -1,0 +1,19 @@
+{
+  "name": "point-of-sale-angularjs",
+  "version": "1.0.0",
+  "description": "Point of Sale Web App using AngularJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/armin-es/point-of-sale-angularjs.git"
+  },
+  "author": "Armin Eslami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/armin-es/point-of-sale-angularjs/issues"
+  },
+  "homepage": "https://github.com/armin-es/point-of-sale-angularjs#readme"
+}
