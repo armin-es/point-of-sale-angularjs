@@ -64,3 +64,10 @@ gulp.task('scripts', () => {
 gulp.task('clean', () => {
 	return del.sync([PATH.DIST]);
 });
+
+// Export (zip)
+gulp.task('export', () => {
+	return gulp.src('./public/**/*')
+		.pipe(zip('project.zip'))
+		.pipe(gulp.dest('./'));
+});
