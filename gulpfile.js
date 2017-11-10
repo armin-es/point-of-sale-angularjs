@@ -59,3 +59,8 @@ gulp.task('scripts', () => {
 		.pipe(gulp.dest(PATH.DIST))
 		.pipe(livereload());
 });
+
+// Delete files and folders
+gulp.task('clean', () => {
+	return del.sync([PATH.DIST]);
+});
