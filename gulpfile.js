@@ -17,8 +17,11 @@ const zip = require('gulp-zip');
 
 //File paths
 const PATH = {
-	STYLES: 'public/scss/style.scss',
 	DIST: 'public/dist',
+
+	STYLES: 'public/scss/style.scss',
+	SCRIPTS: 'public/js/**/*.js',
+
 }
 
 
@@ -33,6 +36,25 @@ gulp.task('styles', () => {
 		.pipe(sourcemaps.init())
 		.pipe(autoprefixer({ browsers: ['last 2 versions']}))
 		.pipe(sass({outputStyle: 'compressed'}))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(PATH.DIST))
+		.pipe(livereload());
+});
+
+//Scripts
+gulp.task('scripts', () => {
+	console.log('starting scripts task');
+
+	return gulp.src(PATH.SCRIPTS)
+		.pipe(plumber(function(err) {
+			console.log('Error in scripts');
+			console.log(err);
+			this.emit('end');
+		}))
+		.pipe(sourcemaps.init())
+		.pipe(babel({presets: ['env']}))
+		.pipe(uglify())
+		.pipe(concat('script.js'))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(PATH.DIST))
 		.pipe(livereload());
